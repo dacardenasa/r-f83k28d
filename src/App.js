@@ -1,36 +1,14 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-class App extends Component {
-
-  constructor(){
-    super();
-    this.increment = this.increment.bind(this);
-
-    this.state = {
-      value: 0
-    }
-
-  }
-
-  render() {
-    return (
-      <div>
-        <span className="value">{this.state.value}</span>
-        <button id="inc" onClick={this.increment}>Incrementa</button>
-      </div>
-    );
-  }
-
-  increment() {
-    var currentValue = this.state.value
-    this.setState({
-      value: currentValue + 1
-    }
-    )
-  }
-
-
+function App() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <span className="value">{count}</span>
+      <button id="inc" onClick={ () => setCount(count + 1) }>Incrementa</button>
+    </div>
+  );
 }
 
 export default App;
